@@ -1,4 +1,4 @@
-# trip-finder
+# Trip Finder
 Find the Cheapest Trip
 ## Install: 
 ```shell
