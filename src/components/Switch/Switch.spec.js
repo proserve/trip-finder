@@ -10,7 +10,7 @@ const choices = [
 
 describe('Switch', () => {
   it('should render correctly in "debug" mode', () => {
-    const component = shallow(<Switch choices={choices} />);
+    const component = shallow(<Switch choices={choices} value={weightProps.TIME} onValueChange={() => {}} />);
     expect(component).toMatchSnapshot();
   });
 });

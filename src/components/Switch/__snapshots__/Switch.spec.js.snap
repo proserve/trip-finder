@@ -12,7 +12,7 @@ exports[`Switch should render correctly in "debug" mode 1`] = `
     Cheapest
   </div>
   <div
-    className="choice "
+    className="choice active"
     key="TIME"
     onClick={[Function]}
   >

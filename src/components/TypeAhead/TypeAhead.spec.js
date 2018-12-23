@@ -8,7 +8,7 @@ const cities = Object.keys(new TFGraph(data.deals).graph);
 
 describe('TypeAhead', () => {
   it('should render correctly in "debug" mode', () => {
-    const component = shallow(<TypeAhead suggestions={cities} />);
+    const component = shallow(<TypeAhead suggestions={cities} onValueChange={() => {}} />);
     expect(component).toMatchSnapshot();
   });
 });

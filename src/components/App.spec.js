@@ -1,5 +1,5 @@
 import React from 'react';
-import "isomorphic-fetch"
+import 'isomorphic-fetch';
 import { shallow } from 'enzyme';
 import App from './App';
 
