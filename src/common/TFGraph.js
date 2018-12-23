@@ -1,6 +1,7 @@
 /* eslint-disable no-param-reassign, no-loop-func */
 
-import { get, set } from 'lodash';
+import get from 'lodash/get';
+import set from 'lodash/set';
 
 export const weightProps = {
   MONEY: 'MONEY',

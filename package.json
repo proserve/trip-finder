@@ -4,8 +4,8 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode=development --open",
-    "build": "webpack --mode production",
+    "start": "webpack-dev-server --mode=production --open",
+    "build": "webpack --mode=production",
     "test": "jest",
     "test:watch": "jest --watch"
   },
@@ -51,6 +51,7 @@
     "style-loader": "^0.23.1",
     "url-loader": "^1.1.2",
     "webpack": "^4.28.1",
+    "webpack-bundle-analyzer": "^3.0.3",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10"
   },
