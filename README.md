@@ -16,3 +16,8 @@ Builds the app for production to the build folder
 ```shell
   yarn build
 ```
+
+## Test
+```shell
+  yarn test
+```
