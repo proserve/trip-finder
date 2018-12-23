@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Switch should render correctly in "debug" mode 1`] = `
+<div
+  className="switch-container"
+>
+  <div
+    className="choice "
+    key="MONEY"
+    onClick={[Function]}
+  >
+    Cheapest
+  </div>
+  <div
+    className="choice "
+    key="TIME"
+    onClick={[Function]}
+  >
+    Fastest
+  </div>
+</div>
+`;
