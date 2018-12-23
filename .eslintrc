@@ -20,5 +20,8 @@
     "document": true,
     "fetch": true,
     "alert": true,
+    "describe": true,
+    "it": true,
+    "expect": true
   }
 }

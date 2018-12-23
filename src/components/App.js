@@ -1,7 +1,7 @@
 import React from 'react';
 import SVG from 'react-svg-inline';
 import './main.scss';
-import TFGraph from '../common/TFGraph';
+import TFGraph, { weightProps } from '../common/TFGraph';
 import TypeAhead from './TypeAhead';
 import direction from '../assets/icons/direction.svg';
 import { TRANSPORT_COLORS, TRANSPORT_ICONS } from '../common/Constants';
@@ -13,7 +13,7 @@ class App extends React.Component {
     this.state = {
       departure: null,
       arrival: null,
-      weightProp: TFGraph.weightProps.MONEY,
+      weightProp: weightProps.MONEY,
       filterBus: true,
       filterTrain: true,
       filterCar: true,
@@ -76,8 +76,8 @@ class App extends React.Component {
               onValueChange={value => this.setState({ weightProp: value })}
               value={weightProp}
               choices={[
-                { label: 'Cheapest', value: TFGraph.weightProps.MONEY },
-                { label: 'Fastest', value: TFGraph.weightProps.TIME },
+                { label: 'Cheapest', value: weightProps.MONEY },
+                { label: 'Fastest', value: weightProps.TIME },
               ]}
             />
             <div style={{ marginBottom: 10 }}>

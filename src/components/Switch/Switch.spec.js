@@ -1,11 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Switch from './index';
-import TFGraph from '../../common/TFGraph';
+import { weightProps } from '../../common/TFGraph';
 
 const choices = [
-  { label: 'Cheapest', value: TFGraph.weightProps.MONEY },
-  { label: 'Fastest', value: TFGraph.weightProps.TIME },
+  { label: 'Cheapest', value: weightProps.MONEY },
+  { label: 'Fastest', value: weightProps.TIME },
 ];
 
 describe('Switch', () => {

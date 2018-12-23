@@ -2,13 +2,13 @@
 
 import { get, set } from 'lodash';
 
-class TFGraph {
-  static weightProps = {
-    MONEY: 'MONEY',
-    TIME: 'TIME',
-  };
+export const weightProps = {
+  MONEY: 'MONEY',
+  TIME: 'TIME',
+};
 
-  constructor(deals, departure, arrival, weightProp = TFGraph.weightProps.MONEY,
+class TFGraph {
+  constructor(deals, departure, arrival, weightProp = weightProps.MONEY,
     filters = { bus: true, train: true, car: true }) {
     this.deals = deals;
     this.departure = departure;
@@ -21,10 +21,10 @@ class TFGraph {
   }
 
   getWeight({ cost, discount, duration: { h, m } }) {
-    if (this.weightProp === TFGraph.weightProps.TIME) {
+    if (this.weightProp === weightProps.TIME) {
       return parseInt(h, 0) * 60 + parseInt(m, 0);
     }
-    if (this.weightProp === TFGraph.weightProps.MONEY) {
+    if (this.weightProp === weightProps.MONEY) {
       return cost - (cost * (discount || 0) / 100);
     }
     return 0;
