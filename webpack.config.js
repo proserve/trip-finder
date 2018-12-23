@@ -15,6 +15,9 @@ module.exports = {
       {
         test: /\.(svg|html|xml)$/i,
         use: 'raw-loader',
+      }, {
+        test: /\.woff($|\?)|\.woff2($|\?)|\.ttf($|\?)|\.eot($|\?)/,
+        use: 'url-loader',
       },
     ],
   },

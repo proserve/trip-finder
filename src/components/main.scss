@@ -1,5 +1,34 @@
+
+@font-face {
+    font-family: 'Sofia Pro';
+    src: url('../assets/fonts/mostardesign_-_sofiaprosemibold-webfont.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'Sofia Pro';
+    src: url('../assets/fonts/mostardesign_-_sofiapro-bold-webfont.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'Sofia Pro';
+    src: url('../assets/fonts/mostardesign_-_sofiaproregular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 body {
-  font-family: "Google Sans";
+  font-family: "Sofia Pro";
   background-color: #f4f5f8;
   font-size: 12px;
 }
