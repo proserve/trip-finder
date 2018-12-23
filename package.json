@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode=production --open",
+    "start": "webpack-dev-server --mode=development --open",
     "build": "webpack --mode=production",
     "test": "jest",
     "test:watch": "jest --watch"
