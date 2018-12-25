@@ -13,4 +13,4 @@ handlers:
 
 
 skip_files:
-- ^(.*/)?.*/node_modules/.*
+- ^node_modules/*.*
