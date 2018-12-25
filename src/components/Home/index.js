@@ -1,13 +1,13 @@
 import React from 'react';
 import SVG from 'react-svg-inline';
-import './main.scss';
-import TFGraph, { weightProps } from '../common/TFGraph';
-import TypeAhead from './TypeAhead';
-import direction from '../assets/icons/direction.svg';
-import { TRANSPORT_COLORS, TRANSPORT_ICONS } from '../common/Constants';
-import Switch from './Switch';
+import '../main.scss';
+import TFGraph, { weightProps } from '../../common/TFGraph';
+import TypeAhead from '../TypeAhead';
+import direction from '../../assets/icons/direction.svg';
+import { TRANSPORT_COLORS, TRANSPORT_ICONS } from '../../common/Constants';
+import Switch from '../Switch';
 
-class App extends React.Component {
+class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -174,4 +174,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default Home;

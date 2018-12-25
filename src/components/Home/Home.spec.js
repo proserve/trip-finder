@@ -1,11 +1,11 @@
 import React from 'react';
 import 'isomorphic-fetch';
 import { shallow } from 'enzyme';
-import App from './App';
+import Home from './index';
 
 describe('App', () => {
   it('should render correctly in "debug" mode', () => {
-    const component = shallow(<App />);
+    const component = shallow(<Home />);
     expect(component).toMatchSnapshot();
   });
 });
