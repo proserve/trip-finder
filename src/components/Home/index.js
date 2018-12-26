@@ -41,9 +41,9 @@ class Home extends React.Component {
     } = nextState;
     if (departure && arrival) {
       if (departure === arrival) {
-        alert('departure should be different than arrival');
+        alert('departure should be different than arrival.');
       } else if (!filterBus && !filterCar && !filterTrain) {
-        alert('Please at least select one filter');
+        alert('Please at least select one filter.');
       } else {
         const tfGraph = new TFGraph(data.deals, departure, arrival, weightProp,
           { bus: filterBus, train: filterTrain, car: filterCar });
