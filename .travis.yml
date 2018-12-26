@@ -1,14 +1,3 @@
 language: node_js
 node_js:
   - "8"
-script:
-  - yarn build
-deploy:
-  provider: gae
-  keyfile: "client-secret.json"
-  project: "trip-finder-226417"
-  on:
-    all_branches: true
-before_install:
-- openssl aes-256-cbc -K $encrypted_c4f6f33d6fa2_key -iv $encrypted_c4f6f33d6fa2_iv
-  -in client-secret.json.enc -out client-secret.json -d
