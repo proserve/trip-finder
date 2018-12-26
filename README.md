@@ -1,4 +1,4 @@
-# Trip Finder
+# Trip Finder [![Build Status](https://travis-ci.org/proserve/trip-finder.svg?branch=master)](https://travis-ci.org/proserve/trip-finder)
 Find the Cheapest Trip [Demo](https://trip-finder-226417.appspot.com/)
 ## Install: 
 ```shell
