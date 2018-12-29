@@ -1,0 +1,49 @@
+@import '../../common/style/variable';
+
+.type-ahead-container {
+  position: relative;
+  float: left;
+  margin-bottom: 5px;
+  min-width: 250px;
+
+  input {
+    padding: 0 10px;
+    border: 1px solid #EBEBEB;
+    font-size: 14px;
+    height: 48px;
+    border-radius: 3px;
+    letter-spacing: .03em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-weight: 900;
+    color: #4f5254;
+    width: 90%;
+
+    &:focus {
+      border-color: #488bf8;
+    }
+  }
+
+  .suggestion-container {
+    z-index: 999;
+    margin-top: 5px;
+    background-color: #fefefe;
+    position: absolute;
+    width: 100%;
+    -webkit-box-shadow: 0 0 15px 1px rgba(69, 65, 78, 0.2);
+    box-shadow: 0 0 15px 1px rgba(69, 65, 78, 0.2);
+    border-radius: 4px;
+    padding: 5px 0;
+    color: #575962;
+
+    .suggestion {
+      cursor: pointer;
+      padding: 10px 15px;
+      font-size: 14px;
+      font-weight: 500;
+
+      &:hover {
+        background-color: $background-color;
+      }
+    }
+  }
+}

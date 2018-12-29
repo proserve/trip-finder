@@ -8,6 +8,7 @@ exports[`Switch should render correctly in "debug" mode 1`] = `
     className="choice "
     key="MONEY"
     onClick={[Function]}
+    role="presentation"
   >
     Cheapest
   </div>
@@ -15,6 +16,7 @@ exports[`Switch should render correctly in "debug" mode 1`] = `
     className="choice active"
     key="TIME"
     onClick={[Function]}
+    role="presentation"
   >
     Fastest
   </div>

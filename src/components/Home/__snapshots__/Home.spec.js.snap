@@ -25,95 +25,11 @@ exports[`App should render correctly in "debug" mode 1`] = `
     <div
       className="controls"
     >
-      <Switch
-        choices={
-          Array [
-            Object {
-              "label": "Cheapest",
-              "value": "MONEY",
-            },
-            Object {
-              "label": "Fastest",
-              "value": "TIME",
-            },
-          ]
-        }
-        onValueChange={[Function]}
-        value="MONEY"
-      />
-      <div
-        style={
-          Object {
-            "marginBottom": 10,
-          }
-        }
+      <h1
+        className="title"
       >
-        <TypeAhead
-          onValueChange={[Function]}
-          placeholder="From Where?"
-          style={
-            Object {
-              "marginRight": 5,
-            }
-          }
-          suggestions={Array []}
-          value={null}
-        />
-        <TypeAhead
-          onValueChange={[Function]}
-          placeholder="To Where?"
-          style={Object {}}
-          suggestions={Array []}
-          value={null}
-        />
-      </div>
-      <div
-        style={
-          Object {
-            "display": "flex",
-          }
-        }
-      >
-        <label
-          className="container-checkbox"
-        >
-          Bus
-          <input
-            checked={true}
-            onChange={[Function]}
-            type="checkbox"
-          />
-          <span
-            className="checkmark"
-          />
-        </label>
-        <label
-          className="container-checkbox"
-        >
-          Train
-          <input
-            checked={true}
-            onChange={[Function]}
-            type="checkbox"
-          />
-          <span
-            className="checkmark"
-          />
-        </label>
-        <label
-          className="container-checkbox"
-        >
-          Car
-          <input
-            checked={true}
-            onChange={[Function]}
-            type="checkbox"
-          />
-          <span
-            className="checkmark"
-          />
-        </label>
-      </div>
+        Loading Deals... 
+      </h1>
     </div>
   </div>
 </div>

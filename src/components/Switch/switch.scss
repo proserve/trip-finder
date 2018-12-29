@@ -1,0 +1,34 @@
+$active-color: #333;
+.switch-container {
+  display: flex;
+  margin-bottom: 10px;
+
+  .choice {
+    padding: 0px 20px;
+    color: #6d8494;
+    background-color: #92aabb;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-right: 5px;
+    line-height: 30px;
+
+    &:hover {
+      background-color: $active-color;
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    &.active {
+      background-color: $active-color;
+      border: none;
+      color: #fff;
+
+      &:focus {
+        text-decoration: none !important;
+      }
+
+    }
+  }
+
+}

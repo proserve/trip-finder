@@ -3,13 +3,15 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
-// const isProd = mode === 'production';
 const plugins = [
   new HtmlWebpackPlugin({
     template: './src/index.html',
     filename: 'index.html',
   }),
-  new CopyWebpackPlugin([{ from: './src/assets/', to: path.resolve(__dirname, 'dist/assets') }]),
+  new CopyWebpackPlugin([
+    { from: './src/assets/', to: path.resolve(__dirname, 'dist/assets') },
+    { from: './src/api/', to: path.resolve(__dirname, 'dist/api') },
+  ]),
 ];
 
 module.exports = (env, arg) => {

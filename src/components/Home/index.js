@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import SVG from 'react-svg-inline';
-import '../main.scss';
 import TFGraph, { weightProps } from '../../common/TFGraph';
 import TypeAhead from '../TypeAhead';
 import direction from '../../assets/icons/direction.svg';
 import { TRANSPORT_COLORS, TRANSPORT_ICONS } from '../../common/Constants';
 import Switch from '../Switch';
+import Checkbox from '../Checkbox';
+import './home.scss';
 
 class Home extends React.Component {
   constructor(props) {
@@ -19,17 +20,21 @@ class Home extends React.Component {
       filterCar: true,
       data: {},
       cities: [],
+      isLoading: false,
     };
   }
 
   componentWillMount() {
-    fetch('/assets/response.json').then((resp) => {
+    this.setState({ isLoading: true });
+    fetch('/api/response.json').then((resp) => {
       resp.json().then((data) => {
         this.tfGraph = new TFGraph(data.deals);
         const cities = Object.keys(this.tfGraph.graph);
         this.setState({ data, cities });
+        this.setState({ isLoading: false });
       });
     }).catch(() => {
+      this.setState({ isLoading: false });
       alert('an error occur while fetching data');
     });
     this.tripSteps = [];
@@ -52,10 +57,9 @@ class Home extends React.Component {
     }
   }
 
-
   render() {
     const {
-      departure, arrival, weightProp, filterBus, filterTrain, filterCar, cities, data,
+      departure, arrival, weightProp, filterBus, filterTrain, filterCar, cities, data, isLoading,
     } = this.state;
     let totalTime = 0;
     let totalCost = 0;
@@ -72,57 +76,51 @@ class Home extends React.Component {
         </h1>
         <div className="app-container">
           <div className="controls">
-            <Switch
-              onValueChange={value => this.setState({ weightProp: value })}
-              value={weightProp}
-              choices={[
-                { label: 'Cheapest', value: weightProps.MONEY },
-                { label: 'Fastest', value: weightProps.TIME },
-              ]}
-            />
-            <div style={{ marginBottom: 10 }}>
-              <TypeAhead
-                style={{ marginRight: 5 }}
-                value={departure}
-                onValueChange={val => this.setState({ departure: val })}
-                placeholder="From Where?"
-                suggestions={cities.filter(city => city !== arrival)}
-              />
-              <TypeAhead
-                value={arrival}
-                onValueChange={val => this.setState({ arrival: val })}
-                placeholder="To Where?"
-                suggestions={cities.filter(city => city !== departure)}
-              />
-            </div>
-            <div style={{ display: 'flex' }}>
-              <label className="container-checkbox">Bus
-                <input
-                  type="checkbox"
-                  checked={filterBus}
-                  onChange={() => this.setState({ filterBus: !filterBus })}
-                />
-                <span className="checkmark" />
-              </label>
-              <label className="container-checkbox">Train
-                <input
-                  type="checkbox"
-                  checked={filterTrain}
-                  onChange={() => this.setState(
-                    { filterTrain: !filterTrain },
-                  )}
-                />
-                <span className="checkmark" />
-              </label>
-              <label className="container-checkbox">Car
-                <input
-                  type="checkbox"
-                  checked={filterCar}
-                  onChange={() => this.setState({ filterCar: !filterCar })}
-                />
-                <span className="checkmark" />
-              </label>
-            </div>
+            {isLoading ? <h1 className="title">Loading Deals... </h1>
+              : (
+                <Fragment>
+                  <Switch
+                    onValueChange={value => this.setState({ weightProp: value })}
+                    value={weightProp}
+                    choices={[
+                      { label: 'Cheapest', value: weightProps.MONEY },
+                      { label: 'Fastest', value: weightProps.TIME },
+                    ]}
+                  />
+                  <div style={{ marginBottom: 10 }}>
+                    <TypeAhead
+                      style={{ marginRight: 5 }}
+                      value={departure}
+                      onValueChange={val => this.setState({ departure: val })}
+                      placeholder="From Where?"
+                      suggestions={cities.filter(city => city !== arrival)}
+                    />
+                    <TypeAhead
+                      value={arrival}
+                      onValueChange={val => this.setState({ arrival: val })}
+                      placeholder="To Where?"
+                      suggestions={cities.filter(city => city !== departure)}
+                    />
+                  </div>
+                  <div style={{ display: 'flex' }}>
+                    <Checkbox
+                      isChecked={filterBus}
+                      onChange={() => this.setState({ filterBus: !filterBus })}
+                      name="Bus"
+                    />
+                    <Checkbox
+                      isChecked={filterTrain}
+                      onChange={() => this.setState({ filterTrain: !filterTrain })}
+                      name="Train"
+                    />
+                    <Checkbox
+                      isChecked={filterCar}
+                      onChange={() => this.setState({ filterCar: !filterCar })}
+                      name="Car"
+                    />
+                  </div>
+                </Fragment>
+              )}
           </div>
           {this.tripSteps && this.tripSteps.length > 0 && (
           <div className="trips controls">
@@ -134,12 +132,12 @@ class Home extends React.Component {
                   <div style={{ width: 30 }}>
                     <SVG svg={TRANSPORT_ICONS[step.transport]} />
                   </div>
-                  <div style={{
-                    width: 10, backgroundColor: TRANSPORT_COLORS[step.transport], height: 130, position: 'relative',
-                  }}
+                  <div
+                    className="vertical-line"
+                    style={{ backgroundColor: TRANSPORT_COLORS[step.transport] }}
                   >
-                    <SVG style={{ position: 'absolute', top: -14, left: -3 }} svg={TRANSPORT_ICONS[`${step.transport}C`]} />
-                    <SVG style={{ position: 'absolute', bottom: -14, left: -3 }} svg={TRANSPORT_ICONS[`${step.transport}C`]} />
+                    <SVG className="point" style={{ top: -14 }} svg={TRANSPORT_ICONS[`${step.transport}C`]} />
+                    <SVG className="point" style={{ bottom: -14 }} svg={TRANSPORT_ICONS[`${step.transport}C`]} />
                   </div>
                   <div style={{ marginLeft: 20 }}>
                     <h3>{step.parent}</h3>
@@ -155,14 +153,12 @@ class Home extends React.Component {
               );
             })}
             {totalTime > 0 && totalCost > 0 && (
-            <div className="trip-box" style={{ order: 0, justifyContent: 'center' }}>
-              <span style={{ fontSize: 14 }}>
+            <div className="trip-box">
+              <span>
                 Costs
-                <span style={{ fontSize: 16, fontWeight: 900 }}>{` ${data.currency} ${totalCost} `}</span>
+                <span>{` ${data.currency} ${totalCost} `}</span>
                 {' in'}
-                <span style={{ fontSize: 16, fontWeight: 900 }}>
-                  {` ${parseInt(totalTime / 60, 0)} h ${parseInt(totalTime % 60, 0)} min `}
-                </span>
+                <span>{` ${parseInt(totalTime / 60, 0)} h ${parseInt(totalTime % 60, 0)} min `}</span>
               </span>
             </div>
             )}

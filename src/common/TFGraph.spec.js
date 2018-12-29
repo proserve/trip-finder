@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import TFGraph, { weightProps } from './TFGraph';
-import data from '../assets/response';
+import data from '../api/response';
 
 describe('TfGraph', () => {
   it('Should create the graph properly', () => {

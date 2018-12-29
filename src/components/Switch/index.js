@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './switch.scss';
 
 export default class Switch extends React.Component {
   render() {
@@ -7,7 +8,14 @@ export default class Switch extends React.Component {
     return (
       <div className="switch-container">
         {choices.map(({ value, label }) => (
-          <div onClick={() => onValueChange(value)} className={`choice ${value === val ? 'active' : ''}`} key={value}>{label}</div>
+          <div
+            onClick={() => onValueChange(value)}
+            role="presentation"
+            className={`choice ${value === val ? 'active' : ''}`}
+            key={value}
+          >
+            {label}
+          </div>
         ))}
       </div>
     );

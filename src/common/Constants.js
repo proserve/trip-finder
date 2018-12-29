@@ -1,18 +1,17 @@
-export const BACKGROUNDS = [
-  'https://wallpapercave.com/wp/75yF3aR.jpg',
-  'https://stmed.net/sites/default/files/amsterdam-wallpapers-28382-9562221.jpg',
-  'https://picturesmania.com/0-0/3195_varshava-p.jpg',
-  'https://images.wallpaperscraft.com/image/stockholm_river_building_top_view_28528_1920x1080.jpg',
-  'http://www.epluseurope.com/images/Brussels-3-shutterstock-m.jpg',
-];
+import bus from '../assets/icons/bus1.svg';
+import busC from '../assets/icons/circle-bus.svg';
+import trainC from '../assets/icons/circle-train.svg';
+import train from '../assets/icons/train1.svg';
+import car from '../assets/icons/car.svg';
+import carC from '../assets/icons/circle-car.svg';
 
 export const TRANSPORT_ICONS = {
-  bus: require('../assets/icons/bus1.svg'),
-  busC: require('../assets/icons/circle-bus.svg'),
-  trainC: require('../assets/icons/circle-train.svg'),
-  train: require('../assets/icons/train1.svg'),
-  car: require('../assets/icons/car.svg'),
-  carC: require('../assets/icons/circle-car.svg'),
+  bus,
+  busC,
+  trainC,
+  train,
+  car,
+  carC,
 };
 
 export const TRANSPORT_COLORS = {

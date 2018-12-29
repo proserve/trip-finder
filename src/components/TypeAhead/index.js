@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import './type-ahead.scss';
 
 export default class TypeAhead extends React.Component {
   constructor(props) {
@@ -69,10 +70,9 @@ export default class TypeAhead extends React.Component {
                   <div
                     onClick={() => {
                       onValueChange(suggestion);
-                      this.setState(
-                        { tempVal: suggestion, showSuggestions: false },
-                      );
+                      this.setState({ tempVal: suggestion, showSuggestions: false });
                     }}
+                    role="presentation"
                     key={suggestion}
                     className="suggestion"
                   >
@@ -82,7 +82,6 @@ export default class TypeAhead extends React.Component {
               </Fragment>
             )
             }
-
           </div>
         )}
       </div>
